@@ -23,6 +23,9 @@ namespace AEAssist.AI.Warrior.Ability
             if (Warrior_SpellHelper.OutOfMeleeRange())
                 return -4;
 
+            if (!SettingMgr.GetSetting<WarriorSettings>().Requiescat)
+                return -5;
+
             if (SpellsDefine.FightorFlight.IsReady())
                 return -6;
             return 0;

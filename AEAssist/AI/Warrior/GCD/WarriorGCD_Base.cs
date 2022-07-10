@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Warrior.GCD
 {
@@ -12,15 +12,18 @@ namespace AEAssist.AI.Warrior.GCD
         uint spell;
         static public uint GetSpell()
         {
-            var aoeChecker = TargetHelper.CheckNeedUseAOE(5, 5, ConstValue.WhiteMageAOECount);       
-            
+            var aoeChecker = TargetHelper.CheckNeedUseAOE(5, 5, ConstValue.WhiteMageAOECount);
+
+
             if (aoeChecker && SpellsDefine.Overpower.IsUnlock())//判断是否需要AOE 并且 AOE技能(超压斧)是否已学习
                 return GetAOE();
 
+            LogHelper.Debug("look this：" + Core.Me.HasMyAuraWithTimeleft(AurasDefine.InnerRelease, 1000).ToString() + ":" + ActionResourceManager.Warrior.BeastGauge.ToString());
+
             if (ActionResourceManager.Warrior.BeastGauge >= 50 || Core.Me.HasMyAuraWithTimeleft(AurasDefine.InnerRelease, 1000))
-            //if (ActionResourceManager.Warrior.BeastGauge >= 50)
-            //兽魂量普是否大于等于50 或者 原初的解放BUFF大于1秒
-            return FellCleave();//裂石飞环
+                //if (ActionResourceManager.Warrior.BeastGauge >= 50)
+                //兽魂量普是否大于等于50 或者 原初的解放BUFF大于1秒
+                return FellCleave();//裂石飞环
             else
                 return GetSingleTarget();
         }
@@ -30,14 +33,14 @@ namespace AEAssist.AI.Warrior.GCD
                 return SpellsDefine.FellCleave;
             else
                 if (SpellsDefine.InnerBeast.IsUnlock())//原初之魂是否已学习
-                    return SpellsDefine.InnerBeast;
-                else
-                    return SpellsDefine.HeavySwing;
+                return SpellsDefine.InnerBeast;
+            else
+                return SpellsDefine.HeavySwing;
         }
         public int Check(SpellEntity lastSpell)
         {
             spell = GetSpell();
-            LogHelper.Debug("look this：" + spell.ToString());
+
             if (!spell.IsReady())
                 return -1;
             return 0;
@@ -53,10 +56,10 @@ namespace AEAssist.AI.Warrior.GCD
 
 
         public static uint GetSingleTarget()
-        {   
+        {
             var tar = Core.Me as Character;
             //LogHelper.Debug(tar.HasMyAuraWithTimeleft(AurasDefine.SurgingTempest, 10000).ToString());
-            switch (ActionManager.LastSpellId) 
+            switch (ActionManager.LastSpellId)
             {
                 case SpellsDefine.HeavySwing:
                     if (SpellsDefine.Maim.IsUnlock())
@@ -73,7 +76,7 @@ namespace AEAssist.AI.Warrior.GCD
                 default:
                     return SpellsDefine.HeavySwing;
             }
-            
+
         }
 
         public static uint GetRoyalAuthority()
