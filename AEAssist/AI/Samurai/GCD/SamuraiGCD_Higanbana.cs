@@ -10,19 +10,21 @@ namespace AEAssist.AI.Samurai.GCD
     {
         public int Check(SpellEntity lastSpell)
         {
-            var ta = Core.Me.CurrentTarget as Character;
-            if (SamuraiSpellHelper.SenCounts() == 1)
-                if (ta.HasMyAuraWithTimeleft(AurasDefine.Higanbana, 3000))
-                    return 10;
-            return -2;
+            // var ta = Core.Me.CurrentTarget as Character;
+            // if (SamuraiSpellHelper.SenCounts() == 1)
+            //     if (ta.HasMyAuraWithTimeleft(AurasDefine.Higanbana, 3000))
+            //         return 10;
+
+            if (AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.OddMinutesBurstPhase
+                || AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
+            {
+                return 0;
+            }
+            return -1;
         }
 
         public async Task<SpellEntity> Run()
         {
-            if (!Core.Me.HasAura(AurasDefine.Kaiten))
-                await SpellsDefine.HissatsuKaiten.DoAbility();
-            //AISpellQueueMgr.Instance.Apply<SpellQueue_Iaijutsu>();
-            //await Task.CompletedTask;
             if (await SpellsDefine.Higanbana.DoGCD())
                 return SpellsDefine.Higanbana.GetSpellEntity();
             return null;

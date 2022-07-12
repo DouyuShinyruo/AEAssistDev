@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Define;
 using AEAssist.Helper;
 using AEAssist.Utilities.CombatMessages;
 using ff14bot.Enums;
 using ff14bot.Managers;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.Rotations.Core
 {

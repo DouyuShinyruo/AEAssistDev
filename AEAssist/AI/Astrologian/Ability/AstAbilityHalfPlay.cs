@@ -1,35 +1,31 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
-using Buddy.Coroutines;
 using ff14bot;
-using ff14bot.Helpers;
-using ff14bot.Managers;
-using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Astrologian.Ability
 {
-    internal class AstAbilityHalfPlay:IAIHandler
+    internal class AstAbilityHalfPlay : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {
 
             if (!SpellsDefine.Play.IsReady()) return -1;
+            if (AIRoot.Instance.CloseBurst)
+                return -2;
             if (!(Core.Me.HasAura(AurasDefine.ArrowDrawn) || Core.Me.HasAura(AurasDefine.BalanceDrawn) || Core.Me.HasAura(AurasDefine.SpearDrawn) || Core.Me.HasAura(AurasDefine.BoleDrawn) && Core.Me.HasAura(AurasDefine.EwerDrawn) || Core.Me.HasAura(AurasDefine.SpireDrawn))) return -2;
 
             if (SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds > 55 && SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds < 65)
+            {
+                if (SettingMgr.GetSetting<AstSettings>().AstHalfCard)
                 {
-                    if (SettingMgr.GetSetting<AstSettings>().AstHalfCard)
-                    {
-                        SettingMgr.GetSetting<AstSettings>().AstHalfCard = false;
-                        return 0;
-                    }
-
+                    SettingMgr.GetSetting<AstSettings>().AstHalfCard = false;
+                    return 0;
                 }
-                return -3;
-            
+
+            }
+            return -3;
+
         }
 
         public Task<SpellEntity> Run()

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Define;
 using AEAssist.Helper;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace AEAssist
 {

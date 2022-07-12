@@ -1,13 +1,12 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
-using Buddy.Coroutines;
 using ff14bot;
+using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using System;
-using ff14bot.Enums;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Astrologian
 {
@@ -275,7 +274,7 @@ namespace AEAssist.AI.Astrologian
                 if (!SpellsDefine.Draw.IsUnlock()) return null;
                 var spell = new SpellEntity(SpellsDefine.Play, skillTarget.FirstOrDefault() as BattleCharacter);
                 AIRoot.GetBattleData<AstBattleData>().AstNum = AIRoot.GetBattleData<AstBattleData>().AstNum + 1;
-                await spell.DoAbility();                
+                await spell.DoAbility();
                 //await CastTetragrammaton(skillTarget);
             }
             return null;
@@ -301,7 +300,7 @@ namespace AEAssist.AI.Astrologian
                 if (!SpellsDefine.Draw.IsUnlock()) return null;
                 var spell = new SpellEntity(SpellsDefine.Play, skillTarget.FirstOrDefault() as BattleCharacter);
                 AIRoot.GetBattleData<AstBattleData>().AstNum = AIRoot.GetBattleData<AstBattleData>().AstNum + 1;
-                await spell.DoAbility();               
+                await spell.DoAbility();
                 //await CastTetragrammaton(skillTarget);
             }
             return null;
@@ -559,7 +558,7 @@ namespace AEAssist.AI.Astrologian
                 await spell.DoAbility();
             }
             return null;
-            
+
         }
         public static async Task<SpellEntity> CastExaltation()
         {
@@ -573,7 +572,20 @@ namespace AEAssist.AI.Astrologian
                 await spell.DoAbility();
             }
             return null;
-            
+
+        }
+
+        public static async Task<SpellEntity> CastAspectedBenefic()
+        {
+            if (GroupHelper.InParty)
+            {
+                var skillTarget = GroupHelper.CastableAlliesWithin30.Where(r => r.CurrentHealth > 0 && !r.HasAura(AurasDefine.AspectedBenefic)).OrderBy(GetCurrentHealthPercent);
+                //await CastDivineBenison(skillTarget);
+                if (!SpellsDefine.AspectedBenefic.IsUnlock()) return null;
+                var spell = new SpellEntity(SpellsDefine.AspectedBenefic, skillTarget.FirstOrDefault() as BattleCharacter);                
+                await spell.DoGCD();
+            }
+            return null;
         }
     }
 }

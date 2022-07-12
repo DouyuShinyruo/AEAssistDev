@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using AEAssist.Helper;
+﻿using AEAssist.Helper;
 using AEAssist.View.Overlay.UIComponent;
 using Buddy.Overlay;
 using ff14bot;
 using ff14bot.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace AEAssist.View.OverlayManager
 {

@@ -1,38 +1,13 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 namespace AEAssist.AI.Summoner.GCD
 {
     public class SMNGCD_PetSummon : IAIHandler
     {
         uint spell;
-        static uint GetIfrit()
-        {
-            if (SpellsDefine.SummonIfrit2.IsUnlock())
-                return SpellsDefine.SummonIfrit2;
-            if (SpellsDefine.SummonIfrit.IsUnlock())
-                return SpellsDefine.SummonIfrit;
-            return SpellsDefine.SummonRuby;
-        }
 
-        static uint GetTitan()
-        {
-            if (SpellsDefine.SummonTitan2.IsUnlock())
-                return SpellsDefine.SummonTitan2;
-            if (SpellsDefine.SummonTitan.IsUnlock())
-                return SpellsDefine.SummonTitan;
-            return SpellsDefine.SummonTopaz;
-        }
-
-        static uint GetGaruda()
-        {
-            if (SpellsDefine.SummonGaruda2.IsUnlock())
-                return SpellsDefine.SummonGaruda2;
-            if (SpellsDefine.SummonGaruda.IsUnlock())
-                return SpellsDefine.SummonGaruda;
-            return SpellsDefine.SummonEmerald;
-        }
 
         static bool SwiftcastingSlipStream()
         {
@@ -44,7 +19,7 @@ namespace AEAssist.AI.Summoner.GCD
             if (!SpellsDefine.Swiftcast.CoolDownInGCDs(3))
                 return false;
 
-            if (SettingMgr.GetSetting<SMNSettings>().SwiftcastOption == 0)
+            if (DataBinding.Instance.SMNSettings.SwiftcastOption == 0)
                 return false;
 
             return true;
@@ -56,11 +31,11 @@ namespace AEAssist.AI.Summoner.GCD
         {
 
 
-            if (SettingMgr.GetSetting<SMNSettings>().SaveInstantSpells)
+            if (DataBinding.Instance.SMNSettings.SaveInstantSpells)
             {
                 if (ActionResourceManager.Summoner.AvailablePets.HasFlag(ActionResourceManager.Summoner.AvailablePetFlags.Ifrit))
-                    return GetIfrit();
-                if (AIRoot.Instance.CloseBurst || !SMNGCD_Aethercharge.GetSpell().CoolDownInGCDs(8))
+                    return SMN_SpellHelper.GetIfrit();
+                if (AIRoot.Instance.CloseBurst || !SMNGCD_Aethercharge.GetSpell().CoolDownInGCDs(SMN_SpellHelper.PetRemaining()*4))
                     return 0;
             }
 
@@ -68,11 +43,11 @@ namespace AEAssist.AI.Summoner.GCD
             //    return GetGaruda();
 
             if (ActionResourceManager.Summoner.AvailablePets.HasFlag(ActionResourceManager.Summoner.AvailablePetFlags.Titan))
-                return GetTitan();
+                return SMN_SpellHelper.GetTitan();
             if (ActionResourceManager.Summoner.AvailablePets.HasFlag(ActionResourceManager.Summoner.AvailablePetFlags.Garuda))
-                return GetGaruda();
+                return SMN_SpellHelper.GetGaruda();
             if (ActionResourceManager.Summoner.AvailablePets.HasFlag(ActionResourceManager.Summoner.AvailablePetFlags.Ifrit))
-                return GetIfrit();
+                return SMN_SpellHelper.GetIfrit();
             return 0;
         }
 
@@ -80,7 +55,7 @@ namespace AEAssist.AI.Summoner.GCD
         {
             spell = GetSpell();
             if (spell == 0)
-                return -1;
+                return -2;
             if (!spell.IsReady())
                 return -1;
 

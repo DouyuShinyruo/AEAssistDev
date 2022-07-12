@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -10,6 +11,19 @@ namespace AEAssist.AI.Samurai.Ability
         public int Check(SpellEntity lastSpell)
         {
             if (!SpellsDefine.Ikishoten.IsUnlock()) return -1;
+            
+            if (SpellsDefine.Ikishoten.GetSpellEntity().Cooldown == TimeSpan.FromMilliseconds(60000))
+            {
+                AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.OddMinutesBurstPhase;
+                return -1;
+            }
+            
+            if (SpellsDefine.Ikishoten.GetSpellEntity().Cooldown == TimeSpan.FromMilliseconds(120000))
+            {
+                AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.CooldownPhase;
+                return -1;
+            }
+            
             if (SpellsDefine.Ikishoten.GetSpellEntity().IsReady() &&
                 ActionResourceManager.Samurai.Kenki < 50)
                 return 1;

@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using System.Threading.Tasks;
 namespace AEAssist.AI.Summoner.GCD
 {
     public class SMNGCD_RuinIV : IAIHandler
@@ -12,7 +12,7 @@ namespace AEAssist.AI.Summoner.GCD
         {
             if (!spell.IsReady())
                 return -1;
-            if ((AIRoot.Instance.CloseBurst || SettingMgr.GetSetting<SMNSettings>().SaveInstantSpells) && !SpellsDefine.EnergyDrain.CoolDownInGCDs(2))
+            if ((AIRoot.Instance.CloseBurst || SMN_SpellHelper.NotMovingWhileSavingInstantSpells()) && !SpellsDefine.EnergyDrain.CoolDownInGCDs(2))
             {
 
                 return -2;

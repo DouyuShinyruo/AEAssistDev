@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Sage
 {
@@ -377,10 +377,11 @@ namespace AEAssist.AI.Sage
                         // check if the player already ressed.
                         LogHelper.Debug("checking if the player already rezzed if so skipping.");
                         if (deadAlly.HasAura(AurasDefine.Raise)) continue;
+                        
+                        // check if the dead ally is targetable
+                        if (!deadAlly.IsTargetable) continue;
 
-                        // check if the distance from the player is more than 30
-
-                        // if (deadAlly.Distance(Core.Me) >= 40) continue;
+                        // check if we can cast it on ally (distance wise)
                         if (!ActionManager.CanCastOrQueue(SpellsDefine.Egeiro.GetSpellEntity().SpellData, deadAlly)) continue;
 
                         if (deadAlly.IsDps())
@@ -400,7 +401,7 @@ namespace AEAssist.AI.Sage
                             }
                             LogHelper.Debug("Trying to swift res the dps.");
                             await CastEgeiroToTarget(deadAlly);
-                            return null;
+                            return null; 
                         }
 
                         if (deadAlly.IsTank())
@@ -426,7 +427,12 @@ namespace AEAssist.AI.Sage
                 // Tanks>Healer>DPS
                 case 1:
                     LogHelper.Debug("Tanks>Healer>DPS-RESSING");
-                    foreach (var deadAlly in deadAllies)
+                    foreach (var deadAlly 
+                             in from deadAlly in deadAllies 
+                             where !deadAlly.HasAura(AurasDefine.Raise) 
+                             where deadAlly.IsTargetable 
+                             where ActionManager.CanCastOrQueue(SpellsDefine.Egeiro.GetSpellEntity().SpellData, deadAlly) 
+                             select deadAlly)
                     {
                         if (deadAlly.IsDps())
                         {
@@ -470,7 +476,11 @@ namespace AEAssist.AI.Sage
                     return null;
                 // DPS>Healer>Tanks
                 case 2:
-                    foreach (var deadAlly in deadAllies)
+                    foreach (var deadAlly in from deadAlly in deadAllies 
+                             where !deadAlly.HasAura(AurasDefine.Raise) 
+                             where deadAlly.IsTargetable 
+                             where ActionManager.CanCastOrQueue(SpellsDefine.Egeiro.GetSpellEntity().SpellData, deadAlly) 
+                             select deadAlly)
                     {
                         // check if the player already ressed.
                         LogHelper.Debug("checking if the player already rezzed if so skipping.");
@@ -523,7 +533,7 @@ namespace AEAssist.AI.Sage
             return null;
         }
 
-        public static async Task<bool> CastEukrasianDiagnosis(Character target)
+        private static async Task<bool> CastEukrasianDiagnosis(Character target)
         {
             if (!SpellsDefine.EukrasianDiagnosis.IsUnlock()) return false;
             await CastEukrasia();
@@ -533,14 +543,17 @@ namespace AEAssist.AI.Sage
         public static async Task<SpellEntity> CastEukrasianDiagnosisTest()
         {
             //if (!SpellsDefine.EukrasianDiagnosis.IsUnlock()) return null;
-            
+
             //var spell = new SpellEntity(SpellsDefine.EukrasianDiagnosis, target as BattleCharacter);
             //return await spell.DoGCD();
 
             if (GroupHelper.InParty)
             {
-                var skillTarget = GroupHelper.CastableAlliesWithin30.Where(r => r.CurrentHealth > 0 && !r.HasAura(AurasDefine.EukrasianDiagnosis) && !r.HasAura(AurasDefine.DifferentialDiagnosis)).OrderBy(GetHealth);
-                //await CastDivineBenison(skillTarget);
+                var skillTarget = GroupHelper.CastableAlliesWithin30.
+                    Where(r => r.CurrentHealth > 0
+                               && !r.HasAura(AurasDefine.EukrasianDiagnosis)
+                               && !r.HasAura(AurasDefine.DifferentialDiagnosis)).
+                    OrderBy(GetHealth);
                 if (!SpellsDefine.EukrasianDiagnosis.IsUnlock()) return null;
                 var spell = new SpellEntity(SpellsDefine.EukrasianDiagnosis, skillTarget.FirstOrDefault() as BattleCharacter);
                 await CastEukrasia();
@@ -550,12 +563,12 @@ namespace AEAssist.AI.Sage
         }
         public static float GetHealth(Character c)
         {
-                return c.CurrentHealthPercent;
-        } 
+            return c.CurrentHealthPercent;
+        }
         public static async Task<bool> CastEukrasianPrognosis(Character target)
         {
             if (!SpellsDefine.EukrasianPrognosis.IsUnlock()) return false;
-            await SageSpellHelper.CastEukrasia();
+            await CastEukrasia();
             var spell = new SpellEntity(SpellsDefine.EukrasianPrognosis, target as BattleCharacter);
             return await spell.DoGCD();
         }

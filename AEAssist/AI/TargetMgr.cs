@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AEAssist.Helper;
+﻿using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AEAssist.AI
 {

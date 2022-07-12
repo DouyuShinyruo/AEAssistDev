@@ -1,6 +1,5 @@
 ﻿//using Clio.Utilities.Collections;
 
-using System;
 using AEAssist.AI;
 using AEAssist.Define;
 using AEAssist.Gamelog;
@@ -12,6 +11,7 @@ using AEAssist.View.OverlayManager;
 using ff14bot.Behavior;
 using ff14bot.Enums;
 using ff14bot.Managers;
+using System;
 using TreeSharp;
 using HotkeyManager = AEAssist.View.Hotkey.HotkeyManager;
 
@@ -124,15 +124,16 @@ namespace AEAssist
         }
 
         public Composite CombatBuffBehavior { get; } = new TreeSharp.Action();
-        
-        public Composite CombatBehavior{
+
+        public Composite CombatBehavior
+        {
             get
             {
                 return
                     new ActionRunCoroutine(ctx => RotationManager.Instance.Update());
             }
         }
-        public Composite PullBuffBehavior{ get; } = new TreeSharp.Action();
+        public Composite PullBuffBehavior { get; } = new TreeSharp.Action();
         #endregion Behavior Composites
     }
 }

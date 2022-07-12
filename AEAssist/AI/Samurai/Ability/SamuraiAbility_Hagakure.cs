@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -15,12 +15,13 @@ namespace AEAssist.AI.Samurai.Ability
             if (SamuraiSpellHelper.SenCounts() == 3)
             {
                 if (ActionResourceManager.Samurai.Kenki > 70) return -3;
-            }else if (SamuraiSpellHelper.SenCounts() == 2)
+            }
+            else if (SamuraiSpellHelper.SenCounts() == 2)
             {
                 if (ActionResourceManager.Samurai.Kenki > 80) return -3;
             }
             if (ActionResourceManager.Samurai.Kenki > 90) return -3;
-            
+
 
             return 0;
         }

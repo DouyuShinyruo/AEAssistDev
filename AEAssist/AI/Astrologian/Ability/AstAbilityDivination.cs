@@ -1,22 +1,18 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
-using Buddy.Coroutines;
-using ff14bot;
-using ff14bot.Helpers;
-using ff14bot.Managers;
-using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Astrologian.Ability
 {
-    internal class AstAbilityDivination:IAIHandler
+    internal class AstAbilityDivination : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {
             if (!SpellsDefine.Divination.IsReady()) return -1;
+            if (AIRoot.Instance.CloseBurst)
+                return -2;
             return 0;
+
         }
 
         public async Task<SpellEntity> Run()

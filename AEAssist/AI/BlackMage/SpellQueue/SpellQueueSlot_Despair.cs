@@ -1,5 +1,5 @@
-﻿using System;
-using AEAssist.Define;
+﻿using AEAssist.Define;
+using System;
 
 namespace AEAssist.AI.BlackMage.SpellQueue
 {

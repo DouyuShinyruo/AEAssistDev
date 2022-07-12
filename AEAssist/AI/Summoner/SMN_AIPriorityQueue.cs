@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.Summoner.Ability;
+﻿using AEAssist.AI.Summoner.Ability;
 using AEAssist.AI.Summoner.GCD;
+using AEAssist.Helper;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 namespace AEAssist.AI.Summoner
 {
     [Job(ClassJobType.Summoner)]
@@ -23,6 +24,7 @@ namespace AEAssist.AI.Summoner
 
         public List<IAIHandler> AbilityQueue { get; } = new List<IAIHandler>()
         {
+            new SMNAbility_UsePotion(),
             new SMNAbility_Swiftcast(),
             new SMNAbility_SearingLight(),
             new SMNAbility_PetTitanMountainBuster(),
@@ -35,7 +37,7 @@ namespace AEAssist.AI.Summoner
         };
         public Task<bool> UsePotion()
         {
-            return Task.FromResult(false);
+            return PotionHelper.UsePotion(SettingMgr.GetSetting<GeneralSettings>().IntPotionId);
         }
     }
 }

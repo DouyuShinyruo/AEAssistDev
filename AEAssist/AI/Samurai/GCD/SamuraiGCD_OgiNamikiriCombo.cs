@@ -1,9 +1,8 @@
-using System.Threading.Tasks;
 using AEAssist.AI.Samurai.SpellQueue;
 using AEAssist.Define;
-using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.GCD
 {
@@ -12,15 +11,9 @@ namespace AEAssist.AI.Samurai.GCD
         public int Check(SpellEntity lastSpell)
         {
             var bd = AIRoot.GetBattleData<SamuraiBattleData>();
-            if (bd.Bursting && bd.EvenBursting)
+            if (bd.CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
             {
-                if (!SamuraiSpellHelper.TargetNeedsDot(Core.Me.CurrentTarget as Character))
-                {
-                    if (SamuraiSpellHelper.SenCounts() == 1)
-                    {
-                        return 0;
-                    }
-                }
+                return 0;
             }
             return -1;
         }
@@ -31,5 +24,6 @@ namespace AEAssist.AI.Samurai.GCD
             await Task.CompletedTask;
             return null;
         }
+        
     }
 }

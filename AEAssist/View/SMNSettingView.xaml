@@ -30,7 +30,7 @@
                 <CheckBox Name="EarlyDecisionMode"
                           Content="{Binding Language.Toggle_EarlyDecisionMode}" Width="200" Height="25"
                           HorizontalAlignment="Left"
-                          IsChecked="{Binding SageSettings.EarlyDecisionMode,Mode=TwoWay}" />
+                          IsChecked="{Binding SMNSettings.EarlyDecisionMode,Mode=TwoWay}" />
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
                     <Label Content="{Binding Language.TextBox_Lucid_Dreaming}" Width="200" />
@@ -38,7 +38,7 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                    <Label Content="{Binding Language.Textbox_SwiftcastOption}" Width="120" />
+                    <Label Content="{Binding Language.Textbox_SMN_SwiftcastOption}" Width="120" />
                     <ComboBox IsEditable="False" Name="SwiftcastOption" Width="150" DisplayMemberPath="Value"
                               SelectedValuePath="Key" DropDownClosed="ChooseSwiftcastOption_OnSelectionChanged"/>
                 </StackPanel>

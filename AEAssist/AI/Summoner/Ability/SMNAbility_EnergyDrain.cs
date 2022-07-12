@@ -1,13 +1,13 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 namespace AEAssist.AI.Summoner.Ability
 {
     public class SMNAbility_EnergyDrain : IAIHandler
     {
         uint spell;
-        uint GetSpell()
+        public static uint GetSpell()
         {
             if (SMN_SpellHelper.CheckUseAOE() && SpellsDefine.EnergySiphon.IsUnlock())
                 return SpellsDefine.EnergySiphon;
@@ -21,7 +21,8 @@ namespace AEAssist.AI.Summoner.Ability
             // 有豆子先把豆子打完
             if (ActionResourceManager.Summoner.Aetherflow != 0)
                 return -10;
-
+            if (SMN_SpellHelper.WaitForPotion())
+                return -6;
 
 
             return 0;

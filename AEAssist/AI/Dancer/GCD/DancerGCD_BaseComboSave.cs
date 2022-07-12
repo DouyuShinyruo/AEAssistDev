@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer.GCD
 {
@@ -10,7 +10,7 @@ namespace AEAssist.AI.Dancer.GCD
         public int Check(SpellEntity lastGCD)
         {
             if (ActionManager.ComboTimeLeft > 0 &&
-                ActionManager.ComboTimeLeft < 3.5f)
+                ActionManager.ComboTimeLeft < 2.5f)
             {
                 if (ActionManager.LastSpellId == SpellsDefine.Windmill)
                 {

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ff14bot.Objects;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using ff14bot.Objects;
-using Newtonsoft.Json;
 
 namespace AEAssist.Helper
 {
@@ -40,7 +40,7 @@ namespace AEAssist.Helper
             return unit != null &&
                    (BossDictionary.ContainsKey(unit.NpcId) || unit.EnglishName.Contains("Dummy"));
         }
-        
+
         public static bool IsDummy(this GameObject unit)
         {
             return unit != null && unit.EnglishName.Contains("Dummy");

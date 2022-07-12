@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using ff14bot;
+﻿using ff14bot;
+using System.Collections.Generic;
 
 namespace AEAssist.AI.Astrologian
 {

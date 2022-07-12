@@ -1,17 +1,11 @@
-﻿using System;
+﻿using AEAssist.Define;
+using AEAssist.Helper;
 using System.Linq;
 using System.Threading.Tasks;
-using AEAssist.Define;
-using AEAssist.Helper;
-using Buddy.Coroutines;
-using ff14bot;
-using ff14bot.Helpers;
-using ff14bot.Managers;
-using ff14bot.Objects;
 
 namespace AEAssist.AI.Astrologian.Ability
 {
-    internal class AstAbilityEssentialDignity:IAIHandler
+    internal class AstAbilityEssentialDignity : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {

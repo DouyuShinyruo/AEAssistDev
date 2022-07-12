@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.Bard.Ability;
+﻿using AEAssist.AI.Bard.Ability;
 using AEAssist.AI.Bard.GCD;
 using AEAssist.Helper;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Bard
 {

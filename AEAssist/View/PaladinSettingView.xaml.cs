@@ -12,9 +12,10 @@ namespace AEAssist.View
 
             var fightorFlightTiming = new Dictionary<int, string>
             {
-                { 0, "任意时间" },
-                { 1, "先锋剑之后" },
-                { 2, "暴乱剑之后" }
+                // Any means either 1 or 2 
+                { 0, "Any/任意时间" },
+                { 1, "Fast Blade/先锋剑之后" },
+                { 2, "Riot Blade/暴乱剑之后" }
             };
             FightorFlightTiming.ItemsSource = fightorFlightTiming;
             FightorFlightTiming.SelectedIndex = SettingMgr.GetSetting<PaladinSettings>().FightorFlightTiming;

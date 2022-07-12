@@ -341,7 +341,7 @@ namespace AEAssist.Define
             HolySheltron = 2674,
             KnightsResolve = 2675
             ;
-            
+
         private const int
             Invincibility0 = 981,
             Invincibility1 = 969,

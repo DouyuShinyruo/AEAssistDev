@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -16,7 +16,7 @@ namespace AEAssist.AI.Samurai.Ability
             }
             var bd = AIRoot.GetBattleData<SamuraiBattleData>();
 
-            if (bd.Bursting)
+            if (bd.CurrPhase == SamuraiPhase.OddMinutesBurstPhase)
             {
                 if (SamuraiSpellHelper.SenCounts() == 1)
                 {
@@ -26,7 +26,7 @@ namespace AEAssist.AI.Samurai.Ability
                         return 1;
                     }
                 }
-                if (bd.EvenBursting)
+                if (bd.CurrPhase == SamuraiPhase.OddMinutesBurstPhase)
                 {
                     if (!SamuraiSpellHelper.TargetNeedsDot(Core.Me.CurrentTarget as Character))
                     {

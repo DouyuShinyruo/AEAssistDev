@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AEAssist.Opener;
+using ff14bot.Enums;
+using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using AEAssist.Opener;
-using ff14bot.Enums;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace AEAssist.View

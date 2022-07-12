@@ -30,21 +30,21 @@
                 <CheckBox Name="EarlyDecisionMode"
                           Content="{Binding Language.Toggle_EarlyDecisionMode}" Width="200" Height="25"
                           HorizontalAlignment="Left"
-                          IsChecked="{Binding SageSettings.EarlyDecisionMode,Mode=TwoWay}" />
+                          IsChecked="{Binding PaladinSettings.EarlyDecisionMode,Mode=TwoWay}" />
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                    <Label Content="{Binding Language.TextBox_ReserveManaPercentage}" Width="200" />
+                    <Label Content="{Binding Language.TextBox_PLD_ReserveManaPercentage}" Width="200" />
                     <TextBox Width="100" Text="{Binding PaladinSettings.ReserveManaPercentage,Mode=TwoWay}" />
                 </StackPanel>
                 
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                    <Label Content="{Binding Language.TextBox_SheltronThreshold}" Width="200" />
+                    <Label Content="{Binding Language.TextBox_PLD_SheltronThreshold}" Width="200" />
                     <TextBox Width="100" Text="{Binding PaladinSettings.SheltronThreshold,Mode=TwoWay}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
-                    <Label Content="{Binding Language.Textbox_FightorFlightTiming}" Width="120" />
+                    <Label Content="{Binding Language.Textbox_PLD_FightorFlightTiming}" Width="120" />
                     <ComboBox IsEditable="False" Name="FightorFlightTiming" Width="150" DisplayMemberPath="Value"
                               SelectedValuePath="Key" DropDownClosed="ChooseFightorFlightTiming_OnSelectionChanged"/>
                 </StackPanel>

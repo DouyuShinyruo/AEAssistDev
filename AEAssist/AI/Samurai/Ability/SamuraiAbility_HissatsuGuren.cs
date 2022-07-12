@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -11,7 +11,7 @@ namespace AEAssist.AI.Samurai.Ability
         {
             if (!SpellsDefine.HissatsuGuren.IsReady()) return -1;
             if (ActionResourceManager.Samurai.Kenki < 25) return -2;
-            
+
             return 0;
         }
 

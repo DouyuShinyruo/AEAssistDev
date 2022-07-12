@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.BlackMage.GCD
 {

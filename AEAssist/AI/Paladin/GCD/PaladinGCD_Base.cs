@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Paladin.GCD
 {
@@ -19,7 +19,7 @@ namespace AEAssist.AI.Paladin.GCD
         {
             spell = GetSpell();
 
-          
+
             if (!spell.IsReady())
                 return -1;
             return 0;
@@ -39,7 +39,7 @@ namespace AEAssist.AI.Paladin.GCD
             if (Core.Me.HasAura(AurasDefine.SwordOath))
                 return SpellsDefine.Atonement;
 
-            switch (ActionManager.LastSpellId) 
+            switch (ActionManager.LastSpellId)
             {
                 case SpellsDefine.FastBlade:
                     if (SpellsDefine.RageofHalone.IsUnlock())
@@ -52,7 +52,7 @@ namespace AEAssist.AI.Paladin.GCD
                 default:
                     return SpellsDefine.FastBlade;
             }
-            
+
         }
 
         public static uint GetRoyalAuthority()

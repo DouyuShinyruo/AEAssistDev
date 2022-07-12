@@ -1,7 +1,7 @@
-﻿using System;
-using AEAssist.View;
+﻿using AEAssist.View;
 using MongoDB.Bson.Serialization.Attributes;
 using PropertyChanged;
+using System;
 
 namespace AEAssist.TriggerCond
 {

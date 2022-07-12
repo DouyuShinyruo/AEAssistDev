@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.WhiteMage.Ability
 {

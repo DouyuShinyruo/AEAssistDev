@@ -1,13 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
-using Buddy.Coroutines;
 using ff14bot;
-using ff14bot.Helpers;
-using ff14bot.Managers;
-using ff14bot.Objects;
+using System.Threading.Tasks;
 
 
 namespace AEAssist.AI.Astrologian.Ability
@@ -18,10 +12,12 @@ namespace AEAssist.AI.Astrologian.Ability
         {
 
             if (!SpellsDefine.Play.IsReady()) return -1;
+            if (AIRoot.Instance.CloseBurst)
+                return -2;
             if (!(Core.Me.HasAura(AurasDefine.ArrowDrawn) || Core.Me.HasAura(AurasDefine.BalanceDrawn) || Core.Me.HasAura(AurasDefine.SpearDrawn) || Core.Me.HasAura(AurasDefine.BoleDrawn) || Core.Me.HasAura(AurasDefine.EwerDrawn) || Core.Me.HasAura(AurasDefine.SpireDrawn))) return -2;
-            if (SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds<110 && SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds >= 5)
+            if (SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds < 110 && SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds >= 5)
             {
-                
+
                 if (SpellsDefine.Draw.IsMaxChargeReady(0.1f))
                 {
                     LogHelper.Debug("即将溢出，发卡");
@@ -36,8 +32,8 @@ namespace AEAssist.AI.Astrologian.Ability
             //}
             //if (SpellsDefine.Divination.CoolDownInGCDs(1))
             //{
-                //SpellData
-                //SpellsDefine.Divination.GetSpellEntity().AdjustedCooldown
+            //SpellData
+            //SpellsDefine.Divination.GetSpellEntity().AdjustedCooldown
             //}
             return 0;
         }

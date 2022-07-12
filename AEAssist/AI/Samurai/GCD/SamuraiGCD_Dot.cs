@@ -1,8 +1,8 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.GCD
 {
@@ -23,7 +23,7 @@ namespace AEAssist.AI.Samurai.GCD
             {
                 return -4;
             }
-            
+
             if (Core.Me.HasMyAura(AurasDefine.Kaiten) || SpellsDefine.HissatsuKaiten.RecentlyUsed())
             {
                 if (!tar.HasMyAuraWithTimeleft(AurasDefine.Higanbana, 10000))

@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Define;
 using AEAssist.Helper;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace AEAssist.View.Overlay
 {

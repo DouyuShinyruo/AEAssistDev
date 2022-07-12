@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.Monk.Ability;
+﻿using AEAssist.AI.Monk.Ability;
 using AEAssist.AI.Monk.GCD;
 using AEAssist.Helper;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Monk
 {

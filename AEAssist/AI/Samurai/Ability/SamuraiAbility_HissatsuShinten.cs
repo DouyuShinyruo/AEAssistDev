@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -23,51 +24,64 @@ namespace AEAssist.AI.Samurai.Ability
 
             if (ActionResourceManager.Samurai.Kenki >= 25)
             {
-                if (bd.Bursting)
+                if (bd.CurrPhase == SamuraiPhase.CooldownPhase)
                 {
+                    // cooldown
+                    if (ActionManager.LastSpellId == SpellsDefine.Kasha)
+                    {
+                        if (bd.burstingShintenCount < 1)
+                        {
+                            bd.burstingShintenCount++;
+                            return 5;
+                        }
+                        
+                        if (bd.burstingShintenCount > 1)
+                        {
+                            // reset
+                            bd.burstingShintenCount = 0;
+                            return -1;
+                        }
+                    }
+                }
                 
+                if (bd.CurrPhase == SamuraiPhase.OddMinutesBurstPhase)
+                {
+
                     if (bd.burstingShintenCount > 3)
                     {
+                        // reset
+                        bd.burstingShintenCount = 0;
                         return -1;
                     }
-                    
-                    if (lastSpell == SpellsDefine.Kasha.GetSpellEntity() || 
+
+                    if (lastSpell == SpellsDefine.Kasha.GetSpellEntity() ||
                         lastSpell == SpellsDefine.Gekko.GetSpellEntity()
                         || lastSpell == SpellsDefine.Yukikaze.GetSpellEntity())
                     {
-                        
+
                         bd.burstingShintenCount++;
                         return 1;
                     }
                 }
-                
-                if (bd.EvenBursting)
+
+                if (bd.CurrPhase == SamuraiPhase.EvenMinutesBurstPhase)
                 {
                     if (bd.burstingShintenCount > 4)
                     {
+                        // reset
+                        bd.burstingShintenCount = 0;
                         return -2;
                     }
-                    
-                    if (lastSpell == SpellsDefine.Kasha.GetSpellEntity() || 
-                        lastSpell == SpellsDefine.Gekko.GetSpellEntity()
+
+                    if (lastSpell == SpellsDefine.Gekko.GetSpellEntity()
                         || lastSpell == SpellsDefine.Yukikaze.GetSpellEntity())
                     {
-                        
+
                         bd.burstingShintenCount++;
                         return 2;
                     }
                 }
                 
-                // cooldown
-                if (ActionManager.LastSpellId == SpellsDefine.Kasha)
-                {
-                    if (ActionResourceManager.Samurai.Kenki >= 60 && ActionResourceManager.Samurai.Kenki <= 100)
-                    {
-                        LogHelper.Debug("Inside CoolDown");
-                        bd.burstingShintenCount = 0;
-                        return 5;
-                    }
-                }
             }
             return -1;
         }

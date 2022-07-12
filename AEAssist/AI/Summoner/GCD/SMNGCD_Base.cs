@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
+using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Summoner.GCD
 {
@@ -26,6 +27,8 @@ namespace AEAssist.AI.Summoner.GCD
             spell = GetSpell();
             if (!spell.IsReady())
                 return -1;
+            if (MovementManager.IsMoving)
+                return -3;
             return 0;
         }
 

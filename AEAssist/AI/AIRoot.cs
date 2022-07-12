@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Gamelog;
 using AEAssist.Helper;
 using AEAssist.Opener;
 using AEAssist.Rotations.Core;
 using ff14bot;
 using ff14bot.Objects;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI
 {

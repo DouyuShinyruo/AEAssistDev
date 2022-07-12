@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 namespace AEAssist.AI.Summoner.Ability
 {
     public class SMNAbility_EnkindleBahamut : IAIHandler
@@ -26,10 +26,16 @@ namespace AEAssist.AI.Summoner.Ability
             {
                 return -2;
             }
-            if (SMN_SpellHelper.Debugging)
+            if (ActionResourceManager.Summoner.TranceTimer <= (int)AIRoot.Instance.GetGCDDuration() * 2)
             {
-                LogHelper.Debug("trance time:" + ActionResourceManager.Summoner.TranceTimer);
+                LogHelper.Info($"{ActionResourceManager.Summoner.TranceTimer} is less than {(int)AIRoot.Instance.GetGCDDuration() * 2}");
+                return 1;
+                
             }
+
+
+            if (SMN_SpellHelper.WaitForPotion() && !SMN_SpellHelper.PhoenixTrance())
+                return -6;
             return 0;
         }
 

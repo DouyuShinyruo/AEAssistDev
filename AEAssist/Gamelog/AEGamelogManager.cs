@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Helper;
 using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AEAssist.Gamelog
 {
@@ -84,8 +84,8 @@ namespace AEAssist.Gamelog
                 }
 
                 AddBuffers((int)e.ChatLogEntry.MessageType, e.ChatLogEntry.Contents);
-                var type = (ushort) e.ChatLogEntry.MessageType;
-                
+                var type = (ushort)e.ChatLogEntry.MessageType;
+
                 if (CheckTypes.Contains(type))
                 {
                     if (e.ChatLogEntry.Contents.Contains(Language.Instance.MessageLog_CountDown_BattleStart))

@@ -1,6 +1,6 @@
-﻿using System;
-using AEAssist.View;
+﻿using AEAssist.View;
 using PropertyChanged;
+using System;
 
 namespace AEAssist.TriggerCond
 {

@@ -1,7 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Summoner.Ability
 {
@@ -21,12 +22,16 @@ namespace AEAssist.AI.Summoner.Ability
             }
 
 
-            if (SMN_SpellHelper.Garuda() && Core.Me.HasAura(AurasDefine.GarudasFavor) && (SettingMgr.GetSetting<SMNSettings>().SwiftcastOption == 1 || SettingMgr.GetSetting<SMNSettings>().SwiftcastOption == 3))
+            if (SMN_SpellHelper.Garuda() && Core.Me.HasAura(AurasDefine.GarudasFavor) && (DataBinding.Instance.SMNSettings.SwiftcastOption == 1 || DataBinding.Instance.SMNSettings.SwiftcastOption == 3))
                 return 1;
 
-            if (SMN_SpellHelper.Ifrit() && SettingMgr.GetSetting<SMNSettings>().SwiftcastOption > 1)
+            if (SMN_SpellHelper.Ifrit() && DataBinding.Instance.SMNSettings.SwiftcastOption > 1)
                 return 2;
 
+            //ensure next one will be ready on time
+            if (DataBinding.Instance.SMNSettings.SwiftcastOption == 1 && SMN_SpellHelper.Ifrit() && ActionResourceManager.Summoner.AvailablePets.HasFlag(ActionResourceManager.Summoner.AvailablePetFlags.Garuda))
+                return 3;
+            
             return -99;
         }
 

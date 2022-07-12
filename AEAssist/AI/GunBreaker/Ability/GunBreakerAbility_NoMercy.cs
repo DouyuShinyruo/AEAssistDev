@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.GunBreaker.Ability
 {
@@ -15,7 +15,7 @@ namespace AEAssist.AI.GunBreaker.Ability
             if (!SpellsDefine.NoMercy.GetSpellEntity().SpellData.IsReady())
                 return -2;
             var time = SettingMgr.GetSetting<GeneralSettings>().RegionOfAbility;
-            if (TimeHelper.Now()- AIRoot.GetBattleData<BattleData>().lastCastTime < time-300)
+            if (TimeHelper.Now() - AIRoot.GetBattleData<BattleData>().lastCastTime < time - 300)
                 return -3;
 
             if (ActionResourceManager.Gunbreaker.SecondaryComboStage > 0)
@@ -24,7 +24,7 @@ namespace AEAssist.AI.GunBreaker.Ability
             if (ActionResourceManager.Gunbreaker.Cartridge != 3)
                 if (Core.Me.ClassLevel < 88)
                     return 2;
-                else if(SpellsDefine.Bloodfest.GetSpellEntity().SpellData.IsReady())
+                else if (SpellsDefine.Bloodfest.GetSpellEntity().SpellData.IsReady())
                     return 3;
                 else return -4;
 

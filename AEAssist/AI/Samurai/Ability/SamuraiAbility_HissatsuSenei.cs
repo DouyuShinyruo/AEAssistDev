@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
 using AEAssist.Define;
 using AEAssist.Helper;
-using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -20,9 +20,9 @@ namespace AEAssist.AI.Samurai.Ability
                 return -4;
             }
 
-            if (AIRoot.GetBattleData<SamuraiBattleData>().Bursting)
+            if (SpellsDefine.HissatsuSenei.IsReady())
             {
-                AIRoot.GetBattleData<SamuraiBattleData>().EvenBursting = true;
+                AIRoot.GetBattleData<SamuraiBattleData>().CurrPhase = SamuraiPhase.EvenMinutesBurstPhase;
                 return 0;
             }
 

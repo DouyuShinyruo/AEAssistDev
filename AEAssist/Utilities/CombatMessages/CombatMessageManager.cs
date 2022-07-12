@@ -1,10 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
 using AEAssist.AI.Monk;
 using AEAssist.AI.Samurai;
-using AEAssist.View;
-using ff14bot;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AEAssist.Utilities.CombatMessages
 {

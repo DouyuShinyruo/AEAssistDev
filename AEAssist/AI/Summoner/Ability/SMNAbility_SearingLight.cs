@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
+using System.Threading.Tasks;
 namespace AEAssist.AI.Summoner.Ability
 {
     public class SMNAbility_SearingLight : IAIHandler

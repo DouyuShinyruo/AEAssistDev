@@ -84,6 +84,11 @@
                                   Content="{Binding Language.Half}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding AstSettings.AstHalfCard,Mode=TwoWay}" />
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding HotkeySetting.CloseBuffBtnName}"
+                                  Style="{StaticResource CheckBoxOverlayCustomToggle}"
+                                  IsChecked="{Binding Burst,Mode=TwoWay}"
+                                  ToolTip="{Binding Language.ToolTip_Ast_Burst}"/>
                     </WrapPanel>
                     <WrapPanel Margin="10">
                         <Button Style="{StaticResource ImageButton}"

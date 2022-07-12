@@ -1,8 +1,9 @@
-﻿using System;
-using System.Windows;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Helper;
+using AEAssist.View.OverlayManager;
 using PropertyChanged;
+using System;
+using System.Windows;
 
 namespace AEAssist
 {
@@ -63,6 +64,7 @@ namespace AEAssist
         public GunBreakerSettings GunBreakerSettings => SettingMgr.GetSetting<GunBreakerSettings>();
         public DebugCenter DebugCenter => DebugCenter.Intance;
         public MeleePosition MeleePosition => MeleePosition.Intance;
+        public WarriorSettings WarriorSettings => SettingMgr.GetSetting<WarriorSettings>();
 
         public HotkeySetting HotkeySetting => SettingMgr.GetSetting<HotkeySetting>();
         public AEAssist.View.Hotkey.HotkeyManager HotkeyManager => AEAssist.View.Hotkey.HotkeyManager.Instance;
@@ -125,6 +127,11 @@ namespace AEAssist
 
         public void Update()
         {
+            if (GeneralSettings.UseCombatMessageOverlay)
+            {
+                OverlayManager.Instance.StartCombatMessageOverlay();
+            }
+
             if (GeneralSettings.ShowBattleTime)
                 TimeStr =
                     $"{Language.Instance.Content_BattleTime}:  {AIRoot.GetBattleData<BattleData>().CurrBattleTimeInMs / 1000}";
@@ -165,6 +172,7 @@ namespace AEAssist
         #region Dancer
 
         public bool UseFlourish { get; set; } = true;
+        public bool UseSaberDance { get; set; } = true;
 
         #endregion
 
@@ -176,7 +184,7 @@ namespace AEAssist
         #endregion
 
         #region GNB
-        public bool GNBOpen { get; set; }=true;
+        public bool GNBOpen { get; set; } = true;
         public bool GNBRoughDivide { get; set; } = true;
         #endregion
 

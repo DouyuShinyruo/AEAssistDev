@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.Machinist.Ability;
+﻿using AEAssist.AI.Machinist.Ability;
 using AEAssist.AI.Machinist.GCD;
 using AEAssist.Helper;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Machinist
 {

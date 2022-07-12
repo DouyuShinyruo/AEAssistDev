@@ -1,8 +1,11 @@
 ﻿using AEAssist.Define;
 using AEAssist.Helper;
+using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Paladin
 {
@@ -11,7 +14,7 @@ namespace AEAssist.AI.Paladin
 
         public static bool Debugging { get; set; } = true;
 
-        public static bool FightorFlightCooldownSoon()
+        public static bool FightorFlightInGCD(int GCD =3)
         {
             if (!SpellsDefine.FightorFlight.IsUnlock())
                 return false;
@@ -19,7 +22,11 @@ namespace AEAssist.AI.Paladin
             if (Core.Me.HasAura(AurasDefine.FightOrFight))
                 return false;
 
-            if (SpellsDefine.FightorFlight.CoolDownInGCDs(3))
+            //If we have requiescat, we are not using fightorflight even it is ready
+            if (Core.Me.HasAura(AurasDefine.Requiescat))
+                return false;
+
+            if (SpellsDefine.FightorFlight.CoolDownInGCDs(GCD))
                 return true;
 
             return false;
@@ -54,23 +61,16 @@ namespace AEAssist.AI.Paladin
             var target = Core.Me.CurrentTarget as Character;
             if (target == null)
                 return false;
-            if (target.HasMyAura(AurasDefine.GoringBlade))
-                if (!target.HasMyAuraWithTimeleft(AurasDefine.GoringBlade, 3 * (int)AIRoot.Instance.GetGCDDuration()))
-                {
-                    LogHelper.Info($"Target's dot expires in {target.GetAuraById(AurasDefine.GoringBlade).TimeLeft} ms, renewing dot.");
-                    return true;
-                }
-                else return false;
-            if (target.HasMyAura(AurasDefine.BladeOfValor))
-                if (!target.HasMyAuraWithTimeleft(AurasDefine.BladeOfValor, 3 * (int)AIRoot.Instance.GetGCDDuration()))
-                {
-                    LogHelper.Info($"Target's dot expires in {target.GetAuraById(AurasDefine.BladeOfValor).TimeLeft} ms, renewing dot.");
-                    return true;
-                }
-                else return false;
-            
-            
-            return true;
+            var dotTime = 0.0;
+            target.CharacterAuras.Aggregate((time, aura) => {
+                if (aura.CasterId == Core.Player.ObjectId)
+                    if (aura.Id == AurasDefine.GoringBlade || aura.Id == AurasDefine.BladeOfValor)
+                        if (aura.TimespanLeft.TotalMilliseconds >= 0)
+                            dotTime += aura.TimespanLeft.TotalMilliseconds;
+                return time;
+            });
+
+            return dotTime < 2 * AIRoot.Instance.GetGCDDuration();
         }
 
         public static int GCDNeededforCombo()
@@ -85,8 +85,24 @@ namespace AEAssist.AI.Paladin
                     return 3;
             }
         }
+        public async static Task<bool> CountDownOpener()
+        {
+            await SpellsDefine.HolySpirit.DoGCD();
+            AIRoot.Instance.RecordGCD(SpellsDefine.HolySpirit.GetSpellEntity());
+            int time = 1000;
 
+            await Coroutine.Sleep(1000);
 
+            do
+            {
+                await Coroutine.Sleep(50);
+                time += 50;
+                ActionManager.DoAction(SpellsDefine.Intervene, Core.Me.CurrentTarget);
+            }
+            while (SpellsDefine.Intervene.GetSpellEntity().SpellData.MaxCharges == SpellsDefine.Intervene.GetSpellEntity().SpellData.Charges && time < 3000);
+
+            return time >= 3000;
+        }
 
     }
 }

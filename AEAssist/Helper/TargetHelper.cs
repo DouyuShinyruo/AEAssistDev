@@ -1,8 +1,8 @@
-﻿using System;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Define;
 using ff14bot;
 using ff14bot.Objects;
+using System;
 
 namespace AEAssist.Helper
 {

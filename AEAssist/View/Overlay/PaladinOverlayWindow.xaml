@@ -78,21 +78,21 @@
                                   ToolTip="{Binding Language.ToolTip_PLD_FinalBurst}"/>
 
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_IronWill}"
+                                  Content="{Binding Language.Toggle_PLD_IronWill}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding PaladinSettings.IronWill,Mode=TwoWay}"/>
 
 
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_Intervene}"
+                                  Content="{Binding Language.Toggle_PLD_Intervene}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding PaladinSettings.Intervene,Mode=TwoWay}"/>
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_Requiescat}"
+                                  Content="{Binding Language.Toggle_PLD_Requiescat}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding PaladinSettings.Requiescat,Mode=TwoWay}"/>
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_Sheltron}"
+                                  Content="{Binding Language.Toggle_PLD_Sheltron}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding PaladinSettings.Sheltron,Mode=TwoWay}"/>
 

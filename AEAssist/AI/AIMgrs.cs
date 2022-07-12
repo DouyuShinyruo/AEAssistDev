@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Enums;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI
 {

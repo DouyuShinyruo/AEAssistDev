@@ -97,33 +97,36 @@
   "Textbox_BardApexWaitBuffs": "绝峰强制进团辅",
   "ToolTip_Bard_FinalBurst": "目标是Boss,或者木人,而且即将在6秒内死亡,那么诗心1层就用,绝峰大于20就打.\n这个选项默认自动在目标6秒内死亡时激活",
   "ToolTip_Bard_Burst": "关闭后,不主动唱旅神,不使用猛者,纷乱/战斗之声/最终乐章",
+  "ToolTip_RPR_Burst": "关闭后,不主动使用附体,神秘环",
+  "ToolTip_RPR_DoubleEnshroundPrefer": "开启后,在资源满足时,会优先打双附体",
+
+  "Toggle_Bloodletter": "失血箭",
+  "ToolTip_Bard_Bloodletter": "是否使用失血箭",
+
+  "Toggle_Heat": "热量",
+  "Toggle_Wildfire": "野火",
   "ToolTip_MCH_FinalBurst": "目标是Boss,或者木人,而且即将在6秒内死亡,那么野火会尽快炸.机器人也会尽快用掉\n这个选项默认自动在目标6秒内死亡时激活",
   "ToolTip_MCH_WildFireFirst": "正常情况下,野火会等待6秒内冷却好的3高威力GCD(钻头,电锯,空气猫),开启之后就不等了,防止延后.\n这个选项可以被设置为默认激活.在机工的职业设置里.",
   "ToolTip_MCH_Burst": "关闭后,不主动使用过热,机器人,野火",
-  "ToolTip_RPR_Burst": "关闭后,不主动使用附体,神秘环",
-  "ToolTip_RPR_DoubleEnshroundPrefer": "开启后,在资源满足时,会优先打双附体",
-  "Toggle_Heat": "热量",
-  "Toggle_Wildfire": "野火",
+
   "ToolTip_SMN_Burst": "关闭爆发, 不开龙神/不死鸟",
   "ToolTip_SMN_FinalBurst": "资源倾斜，目前没用",
   "Toggle_SMN_SaveInstantSpells": "保留瞬发技能",
   "ToolTip_SMN_SaveInstantSpells": "除非要被刷新了/正在移动不然不放瞬发技，优先读条",
   "Textbox_SMN_SwiftcastOption": "即刻咏唱目标",
-  "Toggle_SMN_Crimson": "火神冲",
+  "Toggle_SMN_CrimsonCyclone": "火神冲",
 
-  "Toggle_Bloodletter":"失血箭",
-  "ToolTip_Bard_Bloodletter":"是否使用失血箭",
   "TextBox_PLD_ReserveManaPercentage": "保留蓝量",
   "TextBox_PLD_SheltronThreshold": "高于此值自动使用盾阵",
-  "Textbox_PLD_FightorFlightTiming" : "站逃反应时机",
-  "Toggle_Intervene": "调停",
-  "Toggle_IronWill": "盾姿",
-  
-  "Toggle_Requiescat": "安魂祈祷",
+  "Textbox_PLD_FightorFlightTiming": "站逃反应时机",
+  "Toggle_PLD_Intervene": "调停",
+  "Toggle_PLD_IronWill": "盾姿",
+  "Toggle_PLD_Requiescat": "安魂祈祷",
   "ToolTip_PLD_FinalBurst": "资源倾斜，目前没用",
-  "Toggle_Sheltron": "盾阵",
-  "Toggle_Bloodletter": "失血箭",
-  "ToolTip_Bard_Bloodletter": "是否使用失血箭",
+  "Toggle_PLD_Sheltron": "盾阵",
+
   "Toggle_GNB_Open": "起手远程/突进",
-  "Toggle_GNB_RoughDivide": "保留一层突进"
+  "Toggle_GNB_RoughDivide": "保留一层突进",
+
+  "WarriorDefenseMode": "自动防御"
 }

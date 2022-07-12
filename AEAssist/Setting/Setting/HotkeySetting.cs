@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using AEAssist.Helper;
+﻿using AEAssist.Helper;
 using AEAssist.View.Hotkey;
 using AEAssist.View.Hotkey.BuiltinHotkeys;
 using PropertyChanged;
+using System;
+using System.Collections.Generic;
 using HotkeyManager = AEAssist.View.Hotkey.HotkeyManager;
 
 namespace AEAssist

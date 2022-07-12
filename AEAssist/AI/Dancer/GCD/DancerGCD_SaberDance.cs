@@ -1,8 +1,8 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer.GCD
 {
@@ -14,6 +14,11 @@ namespace AEAssist.AI.Dancer.GCD
             {
                 return -10;
             }
+            if (!AEAssist.DataBinding.Instance.UseSaberDance)
+            {
+                return -3;
+            }
+            
             if (Core.Me.HasAura(AurasDefine.StandardStep) ||
                 Core.Me.HasAura(AurasDefine.TechnicalStep))
             {

@@ -70,13 +70,13 @@
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding FinalBurst, Mode=TwoWay}"
                                   ToolTip="{Binding Language.ToolTip_SMN_FinalBurst}"/>
-                        <CheckBox  Width="100" HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_SaveInstantSpells}"
+                        <CheckBox HorizontalContentAlignment="Center"
+                                  Content="{Binding Language.Toggle_SMN_SaveInstantSpells}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding SMNSettings.SaveInstantSpells, Mode=TwoWay}"
-                                  ToolTip="{Binding Language.ToolTip_SaveInstantSpells}"/>
+                                  ToolTip="{Binding Language.ToolTip_SMN_SaveInstantSpells}"/>
                         <CheckBox HorizontalContentAlignment="Center"
-                                  Content="{Binding Language.Toggle_CrimsonCyclone}"
+                                  Content="{Binding Language.Toggle_SMN_CrimsonCyclone}"
                                   Style="{StaticResource CheckBoxOverlayCustomToggle}"
                                   IsChecked="{Binding SMNSettings.Crimson, Mode=TwoWay}"/>
                     </WrapPanel>

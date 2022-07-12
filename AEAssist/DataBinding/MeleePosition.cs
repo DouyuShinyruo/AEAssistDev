@@ -1,8 +1,8 @@
-﻿using System;
-using AEAssist.Helper;
+﻿using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Objects;
 using PropertyChanged;
+using System;
 
 namespace AEAssist
 {

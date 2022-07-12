@@ -1,8 +1,8 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer.GCD
 {
@@ -14,6 +14,12 @@ namespace AEAssist.AI.Dancer.GCD
             {
                 return -10;
             }
+            
+            if (SpellsDefine.Flourish.RecentlyUsed())
+            {
+                return 1;
+            }
+            
             if (!Core.Me.HasAura(AurasDefine.FlourishingSymmetry) &&
                 !Core.Me.HasAura(AurasDefine.FlourshingFlow))
             {
@@ -24,6 +30,8 @@ namespace AEAssist.AI.Dancer.GCD
             {
                 return -2;
             }
+
+
             return 0;
         }
 

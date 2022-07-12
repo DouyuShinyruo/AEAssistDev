@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
-using ff14bot.Managers;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -13,13 +12,6 @@ namespace AEAssist.AI.Samurai.Ability
             {
                 return -1;
             }
-
-            if (lastSpell != SpellsDefine.MidareSetsugekka.GetSpellEntity())
-            {
-                return -1;
-            }
-
-            AIRoot.GetBattleData<SamuraiBattleData>().Bursting = true;
             return 0;
         }
 

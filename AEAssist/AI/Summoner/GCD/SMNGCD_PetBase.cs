@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Summoner.GCD
 {
@@ -26,6 +26,8 @@ namespace AEAssist.AI.Summoner.GCD
             if (ActionResourceManager.Summoner.PetTimer <= 0)
                 return -3;
             spell = GetSpell();
+            if (spell == 0)
+                return -4;
             if (!spell.IsReady())
             {
                 return -1;
@@ -44,6 +46,8 @@ namespace AEAssist.AI.Summoner.GCD
         {
             if (SMN_SpellHelper.Ifrit())
             {
+                if (MovementManager.IsMoving)
+                    return 0;
                 if (SpellsDefine.RubyRite.IsUnlock())
                     return SpellsDefine.RubyRite;
 
@@ -93,11 +97,13 @@ namespace AEAssist.AI.Summoner.GCD
         {
             if (SMN_SpellHelper.Ifrit())
             {
+                if (MovementManager.IsMoving)
+                    return 0;
                 if (SpellsDefine.RubyDisaster.IsUnlock())
-                    return SpellsDefine.RubyDisaster;
+                    return SpellsDefine.RubyCatastrophe;
 
                 if (SpellsDefine.RubyCatastrophe.IsUnlock())
-                    return SpellsDefine.RubyCatastrophe;
+                    return SpellsDefine.RubyDisaster;
 
                 if (SpellsDefine.RubyOutburst.IsUnlock())
                     return SpellsDefine.RubyOutburst;
@@ -107,10 +113,10 @@ namespace AEAssist.AI.Summoner.GCD
             if (SMN_SpellHelper.Garuda())
             {
                 if (SpellsDefine.EmeraldDisaster.IsUnlock())
-                    return SpellsDefine.EmeraldDisaster;
+                    return SpellsDefine.EmeraldCatastrophe; 
 
                 if (SpellsDefine.EmeraldCatastrophe.IsUnlock())
-                    return SpellsDefine.EmeraldCatastrophe;
+                    return SpellsDefine.EmeraldDisaster;
 
                 if (SpellsDefine.EmeraldOutburst.IsUnlock())
                     return SpellsDefine.EmeraldOutburst;
@@ -119,10 +125,10 @@ namespace AEAssist.AI.Summoner.GCD
             if (SMN_SpellHelper.Titan())
             {
                 if (SpellsDefine.TopazDisaster.IsUnlock())
-                    return SpellsDefine.TopazDisaster;
+                    return SpellsDefine.TopazCatastrophe; 
 
                 if (SpellsDefine.TopazCatastrophe.IsUnlock())
-                    return SpellsDefine.TopazCatastrophe;
+                    return SpellsDefine.TopazDisaster;
 
                 if (SpellsDefine.TopazOutburst.IsUnlock())
                     return SpellsDefine.TopazOutburst;

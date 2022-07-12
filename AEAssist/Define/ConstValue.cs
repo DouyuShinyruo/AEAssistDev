@@ -18,6 +18,8 @@
 
         public static int SageAOECount = 2;
         public static int WhiteMageAOECount = 2;
+        public static int RedMageAOECount = 2;
+        public static int ScholarAOECount = 3;
 
         public static int BlackMageAOECount = 2;
         public static int ParadoxLevelAcquired = 90;

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
-using Buddy.Coroutines;
 using ff14bot;
-using ff14bot.Helpers;
 using ff14bot.Managers;
-using ff14bot.Objects;
+using System;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Astrologian.Ability
 {
@@ -53,7 +49,7 @@ namespace AEAssist.AI.Astrologian.Ability
 
         public async Task<SpellEntity> Run()
         {
-            LogHelper.Debug("开始");            
+            LogHelper.Debug("开始");
             LogHelper.Debug(Convert.ToString(SpellsDefine.Divination.GetSpellEntity().Cooldown.TotalSeconds));
             LogHelper.Debug(Convert.ToString(ActionResourceManager.Astrologian.Arcana));
             LogHelper.Debug(Convert.ToString(ActionResourceManager.Astrologian.SealCount));

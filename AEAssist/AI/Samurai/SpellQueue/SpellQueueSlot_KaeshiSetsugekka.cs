@@ -12,10 +12,10 @@ namespace AEAssist.AI.Samurai.SpellQueue
 
         public void Fill(SpellQueueSlot slot)
         {
-            if (SpellsDefine.KaeshiSetsugekka.GetSpellEntity().SpellData.Charges > 0.99)
-                slot.SetGCDQueue((SpellsDefine.MidareSetsugekka, SpellTargetType.CurrTarget),
-                    (SpellsDefine.KaeshiSetsugekka, SpellTargetType.CurrTarget));
-
+            slot.Abilitys.Enqueue((SpellsDefine.KaeshiSetsugekka, SpellTargetType.CurrTarget));
+            // if (SpellsDefine.KaeshiSetsugekka.GetSpellEntity().SpellData.Charges > 0.99)
+            //     slot.SetGCDQueue((SpellsDefine.MidareSetsugekka, SpellTargetType.CurrTarget),
+            //         (SpellsDefine.KaeshiSetsugekka, SpellTargetType.CurrTarget));
         }
     }
 }

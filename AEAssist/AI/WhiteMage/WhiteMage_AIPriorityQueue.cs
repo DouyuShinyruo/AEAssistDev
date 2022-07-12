@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.WhiteMage.Ability;
+﻿using AEAssist.AI.WhiteMage.Ability;
 using AEAssist.AI.WhiteMage.GCD;
 using AEAssist.Helper;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.WhiteMage
 {

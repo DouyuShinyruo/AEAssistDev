@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using ff14bot.Helpers;
+using System.Diagnostics;
 using System.Windows.Media;
-using ff14bot.Helpers;
 
 namespace AEAssist.Helper
 {

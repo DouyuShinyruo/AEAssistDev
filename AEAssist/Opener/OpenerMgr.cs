@@ -6,14 +6,14 @@
 // 创建日期：2022-04-14
 // -----------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AEAssist.AI;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Enums;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.Opener
 {

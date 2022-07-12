@@ -1,8 +1,6 @@
-using System;
-using System.Threading.Tasks;
 using AEAssist.Define;
-using AEAssist.Helper;
 using AEAssist.Rotations.Core;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.GCD
 {

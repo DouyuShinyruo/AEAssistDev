@@ -1,8 +1,8 @@
-using System.Linq;
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer.Ability
 {

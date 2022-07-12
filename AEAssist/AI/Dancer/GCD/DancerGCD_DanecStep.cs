@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using AEAssist.AI.Dancer.SpellQueue;
+﻿using AEAssist.AI.Dancer.SpellQueue;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer.GCD
 {

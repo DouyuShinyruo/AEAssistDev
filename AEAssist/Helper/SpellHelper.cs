@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using AEAssist.Define;
 using AEAssist.Rotations.Core;
 using Buddy.Coroutines;
@@ -9,6 +6,9 @@ using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.Helper
 {
@@ -234,12 +234,12 @@ namespace AEAssist.Helper
             var baseGCDTime = RotationManager.Instance.GetBaseGCDSpell().AdjustedCooldown.TotalMilliseconds;
             var TargetSpellCoolDown = spellData.Cooldown.TotalMilliseconds;
             //come up in this window
-            var delta = TimeHelper.Now() - AIRoot.GetBattleData<BattleData>().lastCastTime;
+            var delta = TimeHelper.Now() - (AIRoot.GetBattleData<BattleData>().lastCastTime + 300);
             if (delta + TargetSpellCoolDown <
                 baseGCDTime * (count + 1) - SettingMgr.GetSetting<GeneralSettings>().ActionQueueMs)
             {
                 return true;
-            } 
+            }
             return false;
         }
 

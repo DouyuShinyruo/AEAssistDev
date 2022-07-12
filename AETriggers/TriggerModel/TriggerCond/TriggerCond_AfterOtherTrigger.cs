@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using AEAssist.View;
+﻿using AEAssist.View;
 using PropertyChanged;
+using System;
+using System.Collections.Generic;
 
 namespace AEAssist.TriggerCond
 {

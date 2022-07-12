@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Windows.Media;
-using Clio.Utilities;
+﻿using Clio.Utilities;
 using ff14bot;
 using ff14bot.AClasses;
 using ff14bot.Enums;
 using ff14bot.Helpers;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System.Windows.Media;
 using TreeSharp;
 
 namespace AEAssistLoader
@@ -61,6 +61,12 @@ namespace AEAssistLoader
                     case ClassJobType.Ninja:
                     case ClassJobType.Gunbreaker:
                     case ClassJobType.Paladin:
+                    case ClassJobType.Warrior:
+                    case ClassJobType.DarkKnight:
+                    case ClassJobType.Scholar:
+                    case ClassJobType.RedMage:
+
+
                         Logging.Write(Colors.Red, $@"[AEAssist] {Core.Me.CurrentJob} is only for develop.");
                         return new[] { Core.Me.CurrentJob };
                     default:

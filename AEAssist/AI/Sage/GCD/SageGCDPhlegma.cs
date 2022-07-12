@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Sage.GCD
 {
@@ -24,13 +24,17 @@ namespace AEAssist.AI.Sage.GCD
                 AurasDefine.Divination
             };
             if (Core.Me.HasAnyAura(raidbuffs))
-            {                
+            {
                 return true;
             }
             if (Core.Me.CurrentTarget.HasAnyAura(raidbuffs))
             {
                 return true;
             }
+            //if (PotionHelper.CheckPotion(SettingMgr.GetSetting<GeneralSettings>().MindPotionId))
+            //{
+                //return true;
+            //}
             return false;
         }
         public int Check(SpellEntity lastSpell)
@@ -47,19 +51,25 @@ namespace AEAssist.AI.Sage.GCD
             var phlegmaChargesIII = DataManager.GetSpellData(SpellsDefine.PhlegmaIII).Charges;
 
             LogHelper.Debug("Current Phlegma Charge is: " + phlegmaChargesIII);
-
+            
             if (phlegmaCharges == 0 || phlegmaChargesII == 0 || phlegmaChargesIII == 0)
             {
                 LogHelper.Debug("Phlegma has 0 charges meaning is not ready so skip it.");
                 return -1;
             }
+            
             if (IfRaidBuffs())
             {
-                return 0;
+                return 1;
             }
             // If we are not moving check how many charges left for phlegma; don't waste it keep it for movement.
-            if (MovementManager.IsMoving) return 0;
-            if (!(phlegmaCharges < 2) && !(phlegmaChargesII < 2) && !(phlegmaChargesIII < 2)) return 0;
+            if (MovementManager.IsMoving) return 2;
+            if (SpellsDefine.PhlegmaIII.IsMaxChargeReady(0.3f))
+            {
+                LogHelper.Debug("即将溢出");
+                return 3;
+            }
+            //if (!(phlegmaCharges < 2) && !(phlegmaChargesII < 2) && !(phlegmaChargesIII < 2)) return 3;
             LogHelper.Debug("Not wasting Phlegma while standing still saving it for movement cast.");
             return -1;
         }

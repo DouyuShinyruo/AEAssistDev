@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using AEAssist.AI.BlackMage.SpellQueue;
+﻿using AEAssist.AI.BlackMage.SpellQueue;
 using AEAssist.Define;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.BlackMage.GCD
 {

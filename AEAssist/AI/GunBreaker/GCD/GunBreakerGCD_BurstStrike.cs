@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.GunBreaker.GCD
 {
@@ -31,7 +31,7 @@ namespace AEAssist.AI.GunBreaker.GCD
             {
                 if (Core.Me.ClassLevel < 90)
                     return 5;
-                if(SpellsDefine.DoubleDown.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds==0 && ActionResourceManager.Gunbreaker.Cartridge >1)
+                if (SpellsDefine.DoubleDown.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds == 0 && ActionResourceManager.Gunbreaker.Cartridge > 1)
                     return -1;
                 //90级技能冷却时间<无情时间
                 else if (Core.Me.HasMyAuraWithTimeleft(AurasDefine.NoMercy, (int)SpellsDefine.DoubleDown.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds)
@@ -40,10 +40,10 @@ namespace AEAssist.AI.GunBreaker.GCD
                 else return 6;
             }
 
-            if (SpellsDefine.Bloodfest.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds < 5000 && 
+            if (SpellsDefine.Bloodfest.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds < 5000 &&
                 ActionResourceManager.Gunbreaker.Cartridge > 0)
             {
-                if(ActionResourceManager.Gunbreaker.Cartridge == 1 && SpellsDefine.GnashingFang.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds < 5000)
+                if (ActionResourceManager.Gunbreaker.Cartridge == 1 && SpellsDefine.GnashingFang.GetSpellEntity().SpellData.Cooldown.TotalMilliseconds < 5000)
                     return -2;
                 return 7;
             }

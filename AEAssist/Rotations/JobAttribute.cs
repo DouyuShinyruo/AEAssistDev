@@ -1,5 +1,5 @@
-﻿using System;
-using ff14bot.Enums;
+﻿using ff14bot.Enums;
+using System;
 
 namespace AEAssist
 {

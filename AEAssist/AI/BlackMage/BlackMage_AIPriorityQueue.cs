@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.BlackMage.Ability;
+﻿using AEAssist.AI.BlackMage.Ability;
 using AEAssist.AI.BlackMage.GCD;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.BlackMage
 {

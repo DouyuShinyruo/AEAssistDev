@@ -1,8 +1,8 @@
-﻿using System.Globalization;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using System.Globalization;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Sage.GCD
 {

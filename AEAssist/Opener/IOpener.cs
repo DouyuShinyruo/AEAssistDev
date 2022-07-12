@@ -6,9 +6,9 @@
 // 创建日期：2022-04-14
 // -----------------------------------
 
+using AEAssist.AI;
 using System;
 using System.Collections.Generic;
-using AEAssist.AI;
 
 namespace AEAssist.Opener
 {

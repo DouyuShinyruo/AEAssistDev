@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AEAssist.Define;
+using AEAssist.Helper;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AEAssist.Define;
-using AEAssist.Helper;
 
 namespace AEAssist.AI
 {

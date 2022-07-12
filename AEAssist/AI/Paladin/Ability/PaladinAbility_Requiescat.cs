@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Paladin.Ability
 {
@@ -23,7 +23,7 @@ namespace AEAssist.AI.Paladin.Ability
             if (Paladin_SpellHelper.OutOfMeleeRange())
                 return -4;
 
-            if (!SettingMgr.GetSetting<PaladinSettings>().Requiescat)
+            if (!DataBinding.Instance.PaladinSettings.Requiescat)
                 return -5;
 
             if (SpellsDefine.FightorFlight.IsReady())

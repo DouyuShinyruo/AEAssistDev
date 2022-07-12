@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using AEAssist.Opener;
 using ff14bot.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace AEAssist.AI.Monk
 {

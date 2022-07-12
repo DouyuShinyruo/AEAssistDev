@@ -1,9 +1,9 @@
-using System;
-using System.Threading.Tasks;
 using AEAssist.AI.Ninja.SpellQueue;
 using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using System;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Ninja.GCD
 {

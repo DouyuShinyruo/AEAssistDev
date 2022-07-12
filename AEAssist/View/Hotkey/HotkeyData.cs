@@ -1,7 +1,7 @@
-﻿using System;
+﻿using PropertyChanged;
+using System;
 using System.Windows.Forms;
 using System.Windows.Input;
-using PropertyChanged;
 
 namespace AEAssist.View.Hotkey
 {

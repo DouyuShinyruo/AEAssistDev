@@ -1,17 +1,11 @@
-﻿using System;
+﻿using AEAssist.Define;
+using AEAssist.Helper;
 using System.Linq;
 using System.Threading.Tasks;
-using AEAssist.Define;
-using AEAssist.Helper;
-using Buddy.Coroutines;
-using ff14bot;
-using ff14bot.Helpers;
-using ff14bot.Managers;
-using ff14bot.Objects;
 
 namespace AEAssist.AI.Astrologian.Ability
 {
-    internal class AstAbilityExaltation:IAIHandler
+    internal class AstAbilityExaltation : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {
@@ -25,7 +19,7 @@ namespace AEAssist.AI.Astrologian.Ability
             {
                 return -2;
             }
-            
+
             return 0;
         }
 

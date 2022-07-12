@@ -1,7 +1,6 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
-using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -10,7 +9,7 @@ namespace AEAssist.AI.Samurai.Ability
         public int Check(SpellEntity lastSpell)
         {
             if (!SpellsDefine.KaeshiNamikiri.IsReady()) return -1;
-            
+
             return 0;
         }
 

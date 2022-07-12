@@ -1,7 +1,7 @@
-﻿using System;
+﻿using AEAssist.Helper;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AEAssist.Helper;
 
 namespace AEAssist.AI
 {

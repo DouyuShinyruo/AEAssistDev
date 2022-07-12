@@ -112,5 +112,24 @@
   "ToolTip_RPR_Burst": "If it is off, then Enshround / ArcaneCircle will not be used",
   "ToolTip_RPR_DoubleEnshroundPrefer": "Each Arcane Circle window will contain 2 uses of Communio and 1 use of Plentiful Harvest.\nBut if you don't have at least 50 points of blue energy when Arcane Circle cooldowns. Then it will not be used in this way",
   "Toggle_GNBO_pen": "LightningShot/RoughDivide",
-  "Toggle_GNB_RoughDivide": "Keep1RoughDivide"
+  "Toggle_GNB_RoughDivide": "Keep1RoughDivide",
+
+  "Toggle_Flourish": "Flourish",
+  "Toggle_SaberDance": "Saber Dance",
+  
+  "ToolTip_SMN_Burst": "No aethercharge",
+  "ToolTip_SMN_FinalBurst": "Not implemented",
+  "Toggle_SMN_SaveInstantSpells": "Save Instant Spells",
+  "ToolTip_SMN_SaveInstantSpells": "No Instant Spells unless they are cooldown soon or you are moving",
+  "Textbox_SMN_SwiftcastOption": "Switftcase Option",
+  "Toggle_SMN_CrimsonCyclone": "Crimson Cyclone",
+ 
+  "TextBox_PLD_ReserveManaPercentage": "Reserve Mana %",
+  "TextBox_PLD_SheltronThreshold": "Use Sheltron Threshold",
+  "Textbox_PLD_FightorFlightTiming": "Time to use Fight or Flight",
+  "Toggle_PLD_Intervene": "Intervene",
+  "Toggle_PLD_IronWill": "IronWill",
+  "Toggle_PLD_Requiescat": "Requiescat",
+  "ToolTip_PLD_FinalBurst": "Not implemented",
+  "Toggle_PLD_Sheltron": "Sheltron",
 }

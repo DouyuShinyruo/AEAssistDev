@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Paladin.Ability
 {
@@ -17,12 +17,12 @@ namespace AEAssist.AI.Paladin.Ability
         }
         public int Check(SpellEntity lastSpell)
         {
-            if (ActionResourceManager.Paladin.Oath < SettingMgr.GetSetting<PaladinSettings>().SheltronThreshold)
+            if (ActionResourceManager.Paladin.Oath < DataBinding.Instance.PaladinSettings.SheltronThreshold)
                 return -3;
             if (Core.Me.HasAura(AurasDefine.KnightsResolve) || Core.Me.HasAura(AurasDefine.Sheltron) || Core.Me.HasAura(AurasDefine.Sheltron))
                 return -4;
             spell = GetSpell();
-            if (!SettingMgr.GetSetting<PaladinSettings>().Sheltron)
+            if (!DataBinding.Instance.PaladinSettings.Sheltron)
                 return -5;
             if (!spell.IsReady())
                 return -1;

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.AI.Dancer.Ability;
+﻿using AEAssist.AI.Dancer.Ability;
 using AEAssist.AI.Dancer.GCD;
 using AEAssist.Helper;
 using ff14bot.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer
 {
@@ -18,8 +18,8 @@ namespace AEAssist.AI.Dancer
             new DancerGCD_TechnicalStep(),
             new DancerGCD_BaseComboSave(),
             new DancerGCD_Procs(),
-            new DancerGCD_SaberDanceBurstWindow(),
             new DancerGCD_StarfallDance(),
+            new DancerGCD_SaberDanceBurstWindow(),
             new DancerGCD_Tillana(),
             new DancerGCD_StandardStep(),
             new DancerGCD_BaseGCD()

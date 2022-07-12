@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AEAssist.View.Hotkey;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using AEAssist.View.Hotkey;
 
 namespace AEAssist.Helper
 {

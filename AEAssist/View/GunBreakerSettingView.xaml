@@ -6,7 +6,7 @@
              xmlns:viewModels="clr-namespace:AEAssist"
              xmlns:dataBinding="clr-namespace:AEAssist"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="450">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -26,14 +26,21 @@
         TabStripPlacement="Top">
 
         <TabItem Header="{Binding Language.TabItem_BaseSetting}">
-            <StackPanel HorizontalAlignment="Left" Margin="10">
+            <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0" Height="211" Width="398">
                 <CheckBox Name="EarlyDecisionMode"
                           Content="{Binding Language.Toggle_EarlyDecisionMode}" Width="200" Height="25"
                           HorizontalAlignment="Left"
                           IsChecked="{Binding GunBreakerSettings.EarlyDecisionMode,Mode=TwoWay}" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
                     <Label Content="UsePotionEarly(ms)" Width="120" />
-                    <TextBox Width="100" Text="{Binding GunBreakerSettings.UsePotionEarly,Mode=TwoWay}" />
+                    <TextBox Width="90" Text="{Binding GunBreakerSettings.UsePotionEarly,Mode=TwoWay}" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Margin="10">
+                    <Label Content="Do not use RoughDivide when the distance is more than:"  />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                        <Label Content="Default 2.5,Best set between 2.0 to 3.0  "  />
+                        <TextBox Width="100" Text="{Binding GunBreakerSettings.NotUseRoughDivide, Mode=TwoWay}" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </TabItem>

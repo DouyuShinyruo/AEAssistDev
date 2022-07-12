@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Dancer
 {
@@ -60,7 +60,7 @@ namespace AEAssist.AI.Dancer
 
         private static async Task<SpellEntity> UseProcSingleCombo(GameObject target)
         {
-            if (Core.Me.HasAura(AurasDefine.FlourshingFlow))
+            if (Core.Me.HasAura(AurasDefine.FlourshingFlow) || SpellsDefine.Flourish.RecentlyUsed())
             {
                 if (SpellsDefine.Fountainfall.IsUnlock())
                 {

@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using AEAssist.AI.GeneralAI;
+﻿using AEAssist.AI.GeneralAI;
 using AEAssist.Define;
 using AEAssist.Helper;
 using AEAssist.Rotations.Core;
 using ff14bot.Enums;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Bard
 {

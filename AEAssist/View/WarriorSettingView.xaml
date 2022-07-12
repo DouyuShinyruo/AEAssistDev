@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="AEAssist.View.WarriorSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             
+             xmlns:dataBinding="clr-namespace:AEAssist"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/AEAssist;component/View/Style/Button.xaml" />
+                <ResourceDictionary Source="/AEAssist;component/View/Style/CheckBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <Binding Source="{x:Static dataBinding:DataBinding.Instance}" />
+    </UserControl.DataContext>
+
+    <TabControl
+        Margin="20"
+        TabStripPlacement="Top">
+
+        <TabItem Header="{Binding Language.TabItem_BaseSetting}">
+            <StackPanel HorizontalAlignment="Left" Margin="10">
+                <CheckBox Name="EarlyDecisionMode"
+                          Content="{Binding Language.Toggle_EarlyDecisionMode}" Width="200" Height="25"
+                          HorizontalAlignment="Left"
+                          IsChecked="{Binding WarriorSettings.EarlyDecisionMode,Mode=TwoWay}" />
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10">
+                    <Label Content="需要手动释放的技能" Width="180" Height="25" />
+                    <Label Content="猛攻，动乱，摆脱，原初的勇猛" Width="180" Height="25" />
+                </StackPanel>
+            </StackPanel>
+        </TabItem>
+
+    </TabControl>
+</UserControl>

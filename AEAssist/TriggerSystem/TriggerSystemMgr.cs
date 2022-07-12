@@ -1,6 +1,6 @@
-﻿using System;
+﻿using AEAssist.Helper;
+using System;
 using System.Collections.Generic;
-using AEAssist.Helper;
 
 namespace AEAssist.TriggerSystem
 {

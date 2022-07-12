@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI
 {
@@ -147,7 +147,7 @@ namespace AEAssist.AI
                     return await ApplySlot();
                 }
                 LogHelper.Debug(
-                    $"Slot Abilitys: {slot.Abilitys.Count} UsePostion: {slot.UsePotion}");
+                    $"Slot Abilitys: {slot.Abilitys.Count} UsePotion: {slot.UsePotion}");
                 if (slot.Abilitys.Count == 0)
                 {
                     if (slot.UsePotion)

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Gamelog;
 using AEAssist.Helper;
 using AEAssist.TriggerSystem;
+using System.Collections.Generic;
 
 namespace AEAssist.AI
 {

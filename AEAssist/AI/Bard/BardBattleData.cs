@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using AEAssist.Helper;
+﻿using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Collections.Generic;
 
 namespace AEAssist.AI.Bard
 {

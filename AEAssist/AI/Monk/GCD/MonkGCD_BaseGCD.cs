@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using ff14bot;
 using ff14bot.Objects;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Monk.GCD
 {

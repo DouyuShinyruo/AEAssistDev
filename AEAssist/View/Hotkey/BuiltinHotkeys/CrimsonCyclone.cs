@@ -9,13 +9,13 @@ namespace AEAssist.View.Hotkey.BuiltinHotkeys
                 SettingMgr.GetSetting<SMNSettings>().Crimson = true;
                 return;
             }
-            
+
             SettingMgr.GetSetting<SMNSettings>().Crimson = false;
         }
 
         public string GetDisplayString()
         {
-            return Language.Instance.Combox_Hotkey_CrimsonCyclone;
+            return Language.Instance.Combox_Hotkey_SMN_CrimsonCyclone;
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AEAssist.AI;
+﻿using AEAssist.AI;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace AEAssist.Helper
 {
@@ -14,7 +14,7 @@ namespace AEAssist.Helper
         public static List<PotionData> StrPotions { get; set; } = new List<PotionData>();
         public static List<PotionData> MindPotions { get; set; } = new List<PotionData>();
 
-        public static List<PotionData> INTPotions { get; set; } = new List<PotionData>();
+        public static List<PotionData> IntPotions { get; set; } = new List<PotionData>();
 
         public static void Init()
         {
@@ -91,25 +91,25 @@ namespace AEAssist.Helper
                 Name = "Grade 3 Mind/3级意力"
             });
 
-            if (INTPotions == null)
-                INTPotions = new List<PotionData>();
+            if (IntPotions == null)
+                IntPotions = new List<PotionData>();
 
-            INTPotions.Add(new PotionData
+            IntPotions.Add(new PotionData
             {
                 ID = 36112,
-                Name = "Grade 6 INT/6智益力"
+                Name = "Grade 6 INT/6级智力"
             });
-            INTPotions.Add(new PotionData
+            IntPotions.Add(new PotionData
             {
                 ID = 36107,
                 Name = "Grade 5 INT/5级智力"
             });
-            INTPotions.Add(new PotionData
+            IntPotions.Add(new PotionData
             {
                 ID = 31896,
                 Name = "Grade 4 INT/4级智力"
             });
-            INTPotions.Add(new PotionData
+            IntPotions.Add(new PotionData
             {
                 ID = 29495,
                 Name = "Grade 3 INT/3级智力"

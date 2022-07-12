@@ -46,6 +46,17 @@
                         </TabItem.LayoutTransform>
                         <local:AstrologianSettingView HorizontalAlignment="Center" />
                     </TabItem>
+                    <TabItem Width="50" Height="50">
+                        <TabItem.Header>
+                            <Image Margin="5" Source="/AEAssist;component/Resources/jobs/sch-framed.png" />
+                        </TabItem.Header>
+                        <TabItem.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="90" />
+                            </TransformGroup>
+                        </TabItem.LayoutTransform>
+                        <local:WhiteMageSettingView HorizontalAlignment="Center" />
+                    </TabItem>
                 </TabControl>
             </Border>
         </StackPanel>

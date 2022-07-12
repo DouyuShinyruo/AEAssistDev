@@ -1,5 +1,5 @@
-﻿using System;
-using PropertyChanged;
+﻿using PropertyChanged;
+using System;
 
 namespace AEAssist.TriggerAction
 {

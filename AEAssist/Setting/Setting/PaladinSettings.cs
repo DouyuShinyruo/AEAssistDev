@@ -22,7 +22,7 @@ namespace AEAssist
             FightorFlightTiming = 1;
             SheltronThreshold = 95;
         }
-        
+
         public bool Requiescat { get; set; } = true;
         public bool IronWill { get; set; } = true;
 

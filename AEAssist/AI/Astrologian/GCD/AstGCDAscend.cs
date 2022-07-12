@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Astrologian.GCD
 {
-    internal class AstGCDAscend:IAIHandler
+    internal class AstGCDAscend : IAIHandler
     {
         public int Check(SpellEntity lastSpell)
         {

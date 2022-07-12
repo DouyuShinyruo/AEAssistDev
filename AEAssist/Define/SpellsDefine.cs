@@ -25,15 +25,19 @@ namespace AEAssist.Define
             Reassemble,
             Tactician,
             Hypercharge,
-            ThirdEye,
             Meditation,
             Soulsow,
             Enshroud,
             ArcaneCrest,
             ArcaneCircle,
-            
+
+            //TankRoleActions
+            Reprisal,
+            Rampart,
+
             //SAM
             MeikyoShisui,
+            ThirdEye,
             
             //Sage
             Eukrasia,
@@ -80,6 +84,7 @@ namespace AEAssist.Define
             SearingLight,
             SummonCarbuncle,
             RadiantAegis,
+            Rekindle,
 
 
 
@@ -90,8 +95,10 @@ namespace AEAssist.Define
             FatedCircle,
             BowShock,
             DemonSlice,
-            DemonSlaughter
-
+            DemonSlaughter,
+            Camouflage,
+            Nebula,
+            Superbolide
 
         };
 
@@ -681,7 +688,8 @@ namespace AEAssist.Define
         public const uint Verfire = 7510;
         public const uint Verstone = 7511;
         public const uint Zwerchhau = 7512;
-        public const uint Moulinet = 7530;
+        public const uint EnchantedMoulinet = 7530;//魔划圆斩
+        public const uint Moulinet = 7513;//划圆斩
         public const uint Vercure = 7514;
         public const uint Displacement = 7515;
         public const uint Redoublement = 7516;
@@ -798,41 +806,54 @@ namespace AEAssist.Define
         // SCH
 
         #region SCH
+        //Dot-毒菌-猛毒菌-蛊毒法
+        public const uint Bio = 17864;
+        public const uint Bio2 = 17865;
+        public const uint Biolysis = 16540;
 
+        //GCD-毁灭-毁坏-气炎法-魔炎法-死炎法-极炎法
+        public const uint SchRuin = 17869;
+        public const uint SchRuin2 = 17870;
+        public const uint SchBroil = 3584;
+        public const uint SchBroil2 = 7435;
+        public const uint SchBroil3 = 16541;
+        public const uint SchBroil4 = 25865;
+
+        //GCDAOE-破阵法-裂阵法
+        public const uint ArtOfWar = 16539;
+        public const uint ArtOfWarII = 25866;
+
+        //以太超流-能量吸收
         public const uint Aetherflow = 166;
         public const uint EnergyDrain2 = 167;
+        //转化
+        public const uint Dissipation = 3587;
         public const uint Adloquium = 185;
         public const uint Succor = 186;
         public const uint SacredSoil = 188;
         public const uint Lustrate = 189;
         public const uint Physick = 190;
         public const uint Indomitability = 3583;
-        public const uint SchRuin = 17869;
-        public const uint Broil = 3584;
         public const uint DeploymentTactics = 3585;
-        public const uint EmergencyTactics = 3586;
-        public const uint Dissipation = 3587;
+        public const uint EmergencyTactics = 3586;        
         public const uint Excogitation = 7434;
-        public const uint Broil2 = 7435;
         public const uint ChainStrategem = 7436;
         public const uint Aetherpact = 7437;
         public const uint DissolveUnion = 7869;
         public const uint WhisperingDawn = 16537;
         public const uint FeyIllumination = 16538;
-        public const uint ArtOfWar = 16539;
-        public const uint Biolysis = 16540;
-        public const uint Broil3 = 16541;
         public const uint Recitation = 16542;
         public const uint FeyBlessing = 16543;
         public const uint SummonSeraph = 16545;
         public const uint Consolation = 16546;
         public const uint SummonEos = 17215;
         public const uint SummonSelene = 17216;
-        public const uint BroilIV = 25865;
-        public const uint ArtOfWarII = 25866;
+        
+        
         public const uint Protraction = 25867;
         public const uint Expedient = 25868;
-        public const uint Bio = 17864;
+
+
         public const uint Enkindle = 184;
         public const uint Galvanize = 297;
 

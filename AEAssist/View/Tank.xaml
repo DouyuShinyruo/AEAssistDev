@@ -33,7 +33,47 @@
                                 <RotateTransform Angle="90" />
                             </TransformGroup>
                         </TabItem.LayoutTransform>
-                        <local:GunBreakerSettingView HorizontalAlignment="Center" />
+                        <local:GunBreakerSettingView HorizontalAlignment="Center"   />
+                    </TabItem>
+                    <TabItem Width="50" Height="50">
+                        <TabItem.Header>
+                            <Image Margin="5" Source="/AEAssist;component/Resources/jobs/war-framed.png" RenderTransformOrigin="0.5,0.5" >
+                                <Image.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="0"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Image.RenderTransform>
+                            </Image>
+                        </TabItem.Header>
+                        <TabItem.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="90" />
+                            </TransformGroup>
+                        </TabItem.LayoutTransform>
+                        <local:WarriorSettingView HorizontalAlignment="Center" />
+                    </TabItem>
+                    <TabItem Width="50" Height="50">
+                        <TabItem.Header>
+                            <Image Margin="5" Source="/AEAssist;component/Resources/jobs/drk-framed.png" RenderTransformOrigin="0.5,0.5" >
+                                <Image.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="0"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Image.RenderTransform>
+                            </Image>
+                        </TabItem.Header>
+                        <TabItem.LayoutTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="90" />
+                            </TransformGroup>
+                        </TabItem.LayoutTransform>
+                        <local:WarriorSettingView HorizontalAlignment="Center" />
                     </TabItem>
                 </TabControl>
             </Border>

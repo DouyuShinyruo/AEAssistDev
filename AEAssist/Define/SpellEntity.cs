@@ -1,12 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using AEAssist.Gamelog;
+﻿using AEAssist.Gamelog;
 using AEAssist.Helper;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Managers;
 using ff14bot.Objects;
+using System;
+using System.Threading.Tasks;
 
 namespace AEAssist.Define
 {

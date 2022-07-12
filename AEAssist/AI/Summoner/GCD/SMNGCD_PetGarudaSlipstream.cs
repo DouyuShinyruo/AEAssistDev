@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
 using ff14bot.Managers;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Summoner.GCD
 {
@@ -15,14 +15,19 @@ namespace AEAssist.AI.Summoner.GCD
                 return -3;
             if (!spell.IsReady())
                 return -1;
-            if (SpellsDefine.Swiftcast.IsReady() && !AIRoot.Instance.CloseBurst)
+            if (!AIRoot.Instance.CloseBurst)
             {
-                return -4;
+                if (SpellsDefine.Swiftcast.IsReady())
+                    return -4;
+                if (SpellsDefine.Swiftcast.CoolDownInGCDs(ActionResourceManager.Summoner.ElementalAttunement / 2))
+                    return -4;
             }
 
-            //如果必须要读条 还有平a没打的话 先打平a
-            if (!Core.Me.HasAura(AurasDefine.Swiftcast) && MovementManager.IsMoving && SMNGCD_PetBase.GetSingleTarget().IsReady())
+
+            //如果必须要读条且正在移动就不使用
+            if (!Core.Me.HasAura(AurasDefine.Swiftcast) && MovementManager.IsMoving)
                 return -5;
+
             return 0;
         }
 

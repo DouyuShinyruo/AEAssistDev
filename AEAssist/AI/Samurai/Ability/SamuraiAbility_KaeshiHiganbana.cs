@@ -1,6 +1,6 @@
-using System.Threading.Tasks;
 using AEAssist.Define;
 using AEAssist.Helper;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.Samurai.Ability
 {
@@ -9,7 +9,7 @@ namespace AEAssist.AI.Samurai.Ability
         public int Check(SpellEntity lastSpell)
         {
             if (!SpellsDefine.KaeshiHiganbana.IsReady()) return -1;
-            
+
             return 0;
         }
 

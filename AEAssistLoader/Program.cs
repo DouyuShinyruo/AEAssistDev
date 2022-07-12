@@ -1,5 +1,5 @@
-﻿using System.IO;
-using AEAssist;
+﻿using AEAssist;
+using System.IO;
 
 namespace AEAssistLoader
 {

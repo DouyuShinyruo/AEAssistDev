@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using AEAssist.Define;
+﻿using AEAssist.Define;
 using AEAssist.Helper;
 using ff14bot;
+using System.Threading.Tasks;
 
 namespace AEAssist.AI.GunBreaker.Ability
 {
@@ -9,6 +9,8 @@ namespace AEAssist.AI.GunBreaker.Ability
     {
         public int Check(SpellEntity lastSpell)
         {
+            if (TargetHelper.GetTargetDistanceFromMeTest(Core.Me, Core.Me.CurrentTarget) > SettingMgr.GetSetting<GunBreakerSettings>().NotUseRoughDivide)
+                return -2;
             if (DataBinding.Instance.GNBRoughDivide)
             {
                 if (SpellsDefine.RoughDivide.GetSpellEntity().SpellData.Charges > 1.9)
@@ -18,7 +20,7 @@ namespace AEAssist.AI.GunBreaker.Ability
             {
                 if (SpellsDefine.RoughDivide.GetSpellEntity().SpellData.Charges > 1.9)
                     return 2;
-                if(Core.Me.HasAura(AurasDefine.NoMercy) && SpellsDefine.RoughDivide.IsReady())
+                if (Core.Me.HasAura(AurasDefine.NoMercy) && SpellsDefine.RoughDivide.IsReady())
                     return 3;
             }
             return -1;
